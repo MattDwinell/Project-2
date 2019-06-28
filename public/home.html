@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <div class="timer">
-        <h3>Timer: </h3>
-    </div>
+    <div class="timer"></div>
 
     <div class="mazeDiv"></div>
 
@@ -24,6 +22,51 @@
     <div class="lives">
         <h3>Lives: </h3>
     </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        window.onload = function () {
+
+            time = 0;
+
+            intervalId = setInterval(count, 1000);
+
+            count();
+
+            function count() {
+
+                time++;
+                var converted = timeConverter(time);
+                console.log(converted);
+
+                // DONE: Use the variable we just created to show the converted time in the "display" div.
+                $(".timer").text(converted);
+            }
+
+            function timeConverter(t) {
+
+                var minutes = Math.floor(t / 60);
+                var seconds = t - (minutes * 60);
+
+                if (seconds < 10) {
+                    seconds = "0" + seconds;
+                }
+
+                if (minutes === 0) {
+                    minutes = "00";
+                }
+                else if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+
+                return minutes + ":" + seconds;
+            }
+
+        }
+
+
+    </script>
 
 </body>
 

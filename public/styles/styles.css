@@ -8,6 +8,7 @@ body{
 }
 
 .timer{
+  font-size: 60px;
   width: 15%;
   height: 10%;
   padding-left: 2%;
